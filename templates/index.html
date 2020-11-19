@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
+
+    <title>Progressus - Free business bootstrap template by GetTemplate</title>
+
+    <link rel="shortcut icon" href="{% static 'images/gt_favicon.png' %}">
+
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	<script src="{% static 'js/html5shiv.js' %}"></script>
+	<script src="{% static 'js/respond.min.js' %}"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <div class="container">
+            <!-- Button for smallest screens -->
+            <a class="navbar-brand" href="{% url "" %}">
+                <img style="width: 100px" src="{% static 'images/Logo.png' %}" alt="诗散清辉">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "" %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "about" %}">About</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More Pages</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url "sidebar-left" %}">Left Sidebar</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url "sidebar-right" %}">Right Sidebar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "contact" %}">Contact</a>
+                    </li>
+
+                    {% if True %}
+                    <!-- if user.is_authenticated -->
+                    <!-- 未登录显示登录/注册 -->
+                    <li class="nav-item">
+                        <a class="btn text-warning" href="{% url "User:sign_in" %}">SIGN IN / SIGN UP</a>
+                    </li>
+                    {% else %}
+                    <!-- 如果用户登录，显示下拉菜单 -->
+                    <div class="nav-item">
+                        <div class="dropdown">
+                            <img style="width: 50px" src="{% static 'images/mac.jpg' %}" alt="120"
+                                class="nav-link dropdown-toggle" href="#" id="imageDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <ul class="dropdown-menu" aria-labelledby="imageDropdown">
+                                <li class="dropdown-item">
+                                    <a href="#"><i></i><span>我的主页</span></a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#"><i></i><span>收藏的文章</span></a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#"><i></i><span>喜欢的文章</span></a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#"><i></i><span>设置</span></a></li>
+                                <li class="dropdown-item">
+                                    <a href="{% url 'contact' %}"><i></i><span>帮助与反馈</span></a></li>
+                                <li class="dropdown-item">
+                                    <a href="#"><i></i><span>退出</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <!-- /.navbar -->
+
+    {% block name %}
+
+    <!-- Header -->
+    <header id="head">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h1 class="lead">AWESOME, CUSTOMIZABLE, FREE</h1>
+            </div>
+            <div class="row justify-content-center">
+                <p class="tagline">PROGRESSUS: free business bootstrap template by
+                    <a href="#">GetTemplate</a>
+                </p>
+            </div>
+            <div class="row justify-content-center">
+                <p>
+                    <a class="btn btn-default btn-lg" role="button">MORE INFO</a>
+                    <a class="btn btn-warning btn-lg" role="button">DOWNLOAD NOW</a>
+                </p>
+            </div>
+        </div>
+    </header>
+    <!-- /Header -->
+
+    <!-- Intro -->
+    <div class="container text-center">
+        <br> <br>
+        <h2 class="thin">The best place to tell people why they are here</h2>
+        <p class="text-muted">
+            The difference between involvement and commitment is like an eggs-and-ham breakfast:<br>
+            the chicken was involved; the pig was committed.
+        </p>
+    </div>
+    <!-- /Intro-->
+
+    <!-- Highlights - jumbotron -->
+    <div class="jumbotron top-space">
+        <div class="container">
+
+            <h3 class="text-center thin">Reasons to use this template</h3>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption">
+                        <h4>
+                            <i class="fa fa-cogs"></i>
+                            Bootstrap-powered
+                        </h4>
+                    </div>
+                    <div class="h-body text-center">
+                        <p>待更新</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption">
+                        <h4>
+                            <i class="fa fa-flash"></i>
+                            Fat-free
+                        </h4>
+                    </div>
+                    <div class="h-body text-center">
+                        <p>待更新</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption">
+                        <h4>
+                            <i class="fa fa-heart"></i>
+                            Creative Commons
+                        </h4>
+                    </div>
+                    <div class="h-body text-center">
+                        <p>待更新</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption">
+                        <h4>
+                            <i class="fa fa-smile-o"></i>
+                            Author's support
+                        </h4>
+                    </div>
+                    <div class="h-body text-center">
+                        <p>待更新</p>
+                    </div>
+                </div>
+            </div> <!-- /row  -->
+
+        </div>
+    </div>
+    <!-- /Highlights -->
+
+    <!-- container -->
+    <div class="container">
+
+        <h2 class="text-center top-space">Frequently Asked Questions</h2>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Question1</h3>
+                <p>待更新</p>
+            </div>
+            <div class="col-sm-6">
+                <h3>Question2</h3>
+                <p>待更新</p>
+            </div>
+        </div> <!-- /row -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Question3</h3>
+                <p>待更新</p>
+            </div>
+            <div class="col-sm-6">
+                <h3>Question4</h3>
+                <p>待更新</p>
+            </div>
+        </div> <!-- /row -->
+
+        <div class="jumbotron top-space">
+            <h4>嘿！现在这里什么也没有！</h4>
+            <p class="text-right">
+                <a class="btn btn-primary btn-large">
+                    Learn more »
+                </a>
+            </p>
+        </div>
+    </div>
+    <!-- /container -->
+    {% endblock %}
+
+    <footer id="footer" class="top-space">
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">联系我们</h3>
+                        <div class="widget-body">
+                            <p>phone: 123456789<br>
+                                <a href="mailto:#">some.email@somewhere.com</a><br>
+                                <br>
+                                地球村中国区海边
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Follow me</h3>
+                        <div class="widget-body">
+                            <p class="follow-me-icons">
+                                <a href="#"><i class="fa fa-weibo fa-2"></i></a>
+                                <a href="#"><i class="fa fa-desktop fa-2"></i></a>
+                                <a href="#"><i class="fa fa-github fa-2"></i></a>
+                                <a href="#"><i class="fa fa-money fa-2"></i></a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <h3 class="widget-title">记录</h3>
+                        <div class="widget-body">
+                            <p>一个帅气的人，一个有才的人，一个脱离了低级趣味的人</p>
+                            <p>以上纯属扯淡</p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="simplenav">
+                                <a href="#">Home</a> |
+                                <a href="{% url "about" %}">About</a> |
+                                <a href="{% url "sidebar-right" %}">Sidebar</a> |
+                                <a href="{% url "contact" %}">Contact</a> |
+                                <b><a href="{% url "User:sign_up" %}">Sign up</a></b>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="text-right">
+                                Copyright &copy; 2020, TOBEALISTENER. Designed by
+                                <a href="https://getbootstrap.com/" rel="designer">bootstrap</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/headroom.min.js' %}"></script>
+    <script src="{% static 'js/jQuery.headroom.min.js' %}"></script>
+    <script src="{% static 'js/template.js' %}"></script>
+</body>
+
+</html>

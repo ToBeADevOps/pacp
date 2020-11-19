@@ -1,0 +1,121 @@
+{% extends 'index.html' %}
+{% block name %}
+<header id="head" class="secondary"></header>
+
+<!-- container -->
+<div class="container">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url '' %}">Home</a></li>
+        <li class="breadcrumb-item active">Registration</li>
+    </ol>
+
+    <div class="row">
+        <!-- Article main content -->
+        <article class="col-xl-12">
+            <header class="card-header">
+                <h1 class="card-title">Registration</h1>
+            </header>
+            <br>
+            <div class="col-md-8 offset-md-3 col-10 offset-1 col-lg-6 col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="thin text-center">Register a new account</h3>
+                        <p class="text-center text-muted">
+                            <a href="{% url 'User:sign_in' %}">Login</a>
+                        </p>
+                        <hr>
+                        <!-- 注册信息的提交表单 -->
+                        <form action="{% url 'User:sign_up' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row top-margin">
+                                <div class="col-sm-6">
+                                    <label>Last Name</label>
+                                    <input id="Last_Name" type="text" class="form-control" placeholder="姓">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>First Name</label>
+                                    <input id="First_Name" type="text" class="form-control" placeholder="名">
+                                </div>
+                            </div>
+                            <div class="top-margin">
+                                <label>Username <span class="text-danger">*</span></label>
+                                <input id="Username" type="text" class="form-control">
+                            </div>
+                            <div class="top-margin">
+                                <label>Email Address <span class="text-danger">*</span></label>
+                                <input id="Email_Address" type="text" class="form-control">
+                            </div>
+
+                            <div class="row top-margin">
+                                <div class="col-sm-6">
+                                    <label>Password <span class="text-danger">*</span></label>
+                                    <input id="Password" type="text" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Confirm Password <span class="text-danger">*</span></label>
+                                    <input id="Confirm_Password" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row">
+                                <div class="col-lg-8 col-8 col-sm-8 col-md-8 col-xl-8">
+                                    <input type="checkbox"> I've read the <a href="#">Terms and Conditions</a>
+                                </div>
+                                <div class="col-lg-4 col-4 col-sm-4 col-md-4 col-xl-4 text-right">
+                                    <button class="btn btn-outline-warning" type="submit"
+                                        onclick="myFunction()">Register
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- /form -->
+                    </div>
+                </div>
+            </div>
+        </article><!-- /Article -->
+    </div>
+</div><!-- /container -->
+
+<script type="text/javascript">
+    function myFunction() {
+        $.ajaxSetup({ data: { csrfmiddlewaretoken: '{{ csrf_token }}' } });
+        const Last_Name = $("#Last_Name").val();
+        const First_Name = $("#First_Name").val();
+        const Username = $("#Username").val();
+        const Email_Address = $("#Email_Address").val();
+        const Password = $("#Password").val();
+        if (Password !== $("#Confirm_Password").val()) {
+            alert("两次输入的密码不一致！");
+        } else {
+            $.ajax({
+                url: "{% url 'User:sign_up' %}",
+                type: 'post',
+                dataType: 'JSON',
+                data: {
+                    'Last_Name': Last_Name,
+                    'First_Name': First_Name,
+                    'Username': Username,
+                    'Email_Address': Email_Address,
+                    'Password': Password,
+                },
+                success: function (data) {
+                    if (data.Username != '') {
+                        alert(data.Username);
+                    }
+                    if (!data.Email_Address) {
+                        alert("邮箱不能为空！");
+                    }
+                    if (!data.Password) {
+                        alert("密码不能为空！");
+                    }
+                },
+                error: function () {
+                    alert("请求失败！");
+                }
+            });
+        }
+
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+{% block name %}
+{% load static %}
+<header id="head" class="secondary"></header>
+
+<!-- container -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url "" %}">Home</a></li>
+        <li class="breadcrumb-item active">About</li>
+    </ol>
+
+    <div class="row">
+        <!-- Article main content -->
+        <article class="col-sm-8 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">关于我们</h1>
+            </header>
+            <h3>第一个标题</h3>
+            <p><img src="{% static 'images/mac.jpg' %}" alt="" class="img-rounded pull-right" width="300">
+                随便写点
+            </p>
+            <p>又写了一点</p>
+            <h3>第二个标题</h3>
+            <p>pss</p>
+            <h3>第三个标题</h3>
+            <p>pass</p>
+            <h3>第四个标题</h3>
+            <p>pass</p>
+            <p>还有一段？</p>
+        </article>
+        <!-- /Article -->
+
+        <!-- Sidebar -->
+        <aside class="col-sm-4 sidebar sidebar-right">
+
+            <div class="widget">
+                <h4>广告位(/doge)</h4>
+                <ul class="list-unstyled list-spaces">
+                    <li><a href="">第一个广告</a><br><span class="small text-muted">pass</span>
+                    </li>
+                    <li><a href="">第二个广告</a><br><span class="small text-muted">pass</span>
+                    </li>
+                    <li><a href="">第三个广告</a><br><span class="small text-muted">pass</span>
+                    </li>
+                    <li><a href="">第四个广告</a><br><span class="small text-muted">pass</span>
+                    </li>
+                    <li><a href="">第五个广告</a><br><span class="small text-muted">pass</span>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+        <!-- /Sidebar -->
+
+    </div>
+</div> <!-- /container -->
+{% endblock %}
